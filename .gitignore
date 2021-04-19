@@ -1,1 +1,7 @@
 /test
+*egg-info
+/build
+/dist
+*pyc
+/strtk/__pycache__/
+/.vscode
