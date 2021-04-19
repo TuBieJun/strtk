@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #from strtk.utils import load_index_file
-#from strtk.utils import parse_region
-from utils import parse_region
+from strtk.utils import parse_region
+#from utils import parse_region
 
 def view_main(args):
     query_chrom, query_start, query_end = parse_region(args.region)

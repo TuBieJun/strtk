@@ -1,6 +1,6 @@
 import sys
-from utils import load_index_file
-from utils import parse_region
+from strtk.utils import load_index_file
+from strtk.utils import parse_region
 
 def com_main(args):
     if args.region:

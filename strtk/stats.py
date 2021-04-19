@@ -1,6 +1,6 @@
 import sys
-from utils import parse_region
-from utils import load_index_file
+from strtk.utils import parse_region
+from strtk.utils import load_index_file
 
 def stats_main(args):
     if args.region:

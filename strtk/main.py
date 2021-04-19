@@ -3,10 +3,10 @@
 
 import sys
 import argparse
-from view import view_main
-from stats import stats_main
-from com import com_main
-from str2vcf import str2vcf_main
+from strtk.view import view_main
+from strtk.stats import stats_main
+from strtk.com import com_main
+from strtk.str2vcf import str2vcf_main
 
 
 def main():

@@ -1,5 +1,5 @@
 import sys
-from utils import parse_region
+from strtk.utils import parse_region
 
 
 def str2vcf_main(args):
