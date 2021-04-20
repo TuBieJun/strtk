@@ -22,5 +22,5 @@ strtk com -s1 in_str_file1 -s2 in_str_file2 -i index_file -r X -f #只比较X染
 ## str2vcf
 ### 将str file转为vcf格式。 可以选择指定区间， 是否过滤no call和indel。
 ```
-strtk strv2vcf -s in_str_file -f -n -i index_file -o out.vcf -I sampleid -r X:1-10000 
+strtk str2vcf -s in_str_file -f -n -i index_file -o out.vcf -I sampleid -r X:1-10000 
 ```
