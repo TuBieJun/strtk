@@ -7,12 +7,15 @@ from strtk.view import view_main
 from strtk.stats import stats_main
 from strtk.com import com_main
 from strtk.str2vcf import str2vcf_main
+from strtk.version import __version__, __author__
 
 
 def main():
     top_desc = """
     Tools for seq string file.
-    """
+    version: {}
+    author: {}
+    """.format(__version__, __author__)
     parser = argparse.ArgumentParser(description=top_desc)
     subparsers = parser.add_subparsers()
 
