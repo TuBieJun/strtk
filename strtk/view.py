@@ -4,7 +4,11 @@ from strtk.utils import parse_region
 #from utils import parse_region
 
 def view_main(args):
-    query_chrom, query_start, query_end = parse_region(args.region)
+    query_chrom = None
+    query_start = None
+    query_end = None
+    if args.region:
+        query_chrom, query_start, query_end = parse_region(args.region)
     with open(args.str_file) as F:
         seq = F.readline().strip()
         with open(args.index_file) as F:
@@ -14,16 +18,15 @@ def view_main(args):
                 genotype = seq[i*2:(i+1)*2]
 
                 # judge pos is in query region or not 
-                if index_info[2] != query_chrom:
-                    continue
-                pos = int(index_info[3]) 
-                if query_start:
-                    if query_end:
-                        if pos < query_start or pos > query_end:
-                            continue
-                    else:
-                        if pos != query_start:
-                            continue
+                if query_chrom:
+                    if index_info[2] != query_chrom:
+                        continue
+                    pos = int(index_info[3]) 
+                    if query_start:
+                        if query_end:
+                            if pos < query_start or pos > query_end:
+                                continue
+                        else:
+                            if pos != query_start:
+                                continue
                 print("{}\t{}\t{}".format(i, "\t".join(index_info), genotype))
-                
-            

@@ -22,7 +22,7 @@ def main():
     #view
     view_parser = subparsers.add_parser("view", help="view seq in specific region")
     view_parser.add_argument("-s", "--str_file", required=True, help="the input string file path", metavar="")
-    view_parser.add_argument("-r", "--region", required=True, help="the region or the pos to view chr|chr:pos|chr:start-end", metavar="")
+    view_parser.add_argument("-r", "--region", help="the region or the pos to view chr|chr:pos|chr:start-end", metavar="")
     view_parser.add_argument("-i", "--index_file", required=True, help="the index file", metavar="")
     view_parser.set_defaults(func=view_main)
 
