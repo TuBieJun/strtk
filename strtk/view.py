@@ -13,6 +13,8 @@ def view_main(args):
         seq = F.readline().strip()
         with open(args.index_file) as F:
             for line in F:
+                if line.startswith("#"):
+                    continue
                 index_info = line.strip().split("\t")
                 i = int(index_info[0])
                 genotype = seq[i*2:(i+1)*2]

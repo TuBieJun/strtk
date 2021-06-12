@@ -6,6 +6,7 @@ import argparse
 from strtk.view import view_main
 from strtk.stats import stats_main
 from strtk.com import com_main
+from strtk.com_plus import com_plus_main
 from strtk.str2vcf import str2vcf_main
 from strtk.version import __version__, __author__
 
@@ -53,6 +54,15 @@ def main():
     str2vcf_parser.add_argument("-I", "--sample_id", required=True, help="the sample id of output vcf file", metavar="")
     str2vcf_parser.set_defaults(func=str2vcf_main)
 
+    #compare two str file with diff length
+    com_plus_parser = subparsers.add_parser("com_plus", help="compare two str seq file, support diff length")
+    com_plus_parser.add_argument("-s1", "--str_file1", required=True, help="the input string file path", metavar="")
+    com_plus_parser.add_argument("-s2", "--str_file2", required=True, help="the other input string file path", metavar="")
+    com_plus_parser.add_argument("-i1", "--index1", required=True, help="the index file of str file 1", metavar="")
+    com_plus_parser.add_argument("-i2", "--index2", required=True, help="the index file of str file 2", metavar="")
+    com_plus_parser.add_argument("-v", "--var_type", required=False, help="the var type to compare, can be SNP/INDEL/ALL,default is SNP", choices=["SNP", "INDEL", "ALL"], default="SNP", metavar="")
+    com_plus_parser.add_argument("-k", "--key", required=False, help="the key to compare a var, can be rsid/pos, default is pos", choices=["rsid", "pos"], default="rsid", metavar="")
+    com_plus_parser.set_defaults(func=com_plus_main)
     argslist = sys.argv[1:]
     if len(argslist) < 1:
         parser.print_help()
