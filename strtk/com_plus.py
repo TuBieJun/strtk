@@ -31,6 +31,8 @@ def com_plus_main(args):
 
     n = 0
     s_n = 0
+    het_n_1 = 0
+    het_n_2 = 0
     for k,geno1 in genotype_dict_1.items():
         if k not in genotype_dict_2:
             continue
@@ -40,6 +42,12 @@ def com_plus_main(args):
         n += 1
         if geno1 == geno2:
             s_n += 1
+        else:
+            if geno1[0] != geno1[1]:
+                het_n_1 += 1
+            if geno2[0] != geno2[1]:
+                het_n_2 += 1
+            
     r = s_n/n if n != 0 else 0
-    print("{}\t{}\t{}".format(n, s_n, r))
+    print("{}\t{}\t{}\t{}\t{}".format(n, s_n, r, het_n_1/(n-s_n), het_n_2/(n-s_n) ))
 
