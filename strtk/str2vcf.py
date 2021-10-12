@@ -12,8 +12,9 @@ def str2vcf_main(args):
         seq = F.readline().strip()
     with open(args.index_file) as F:
         for i,j in enumerate(F):
-            ( _, rsid, chrom, pos, var_type,
+            ( index, rsid, chrom, pos, var_type,
             allele1, allele2, ref_base, alt_base) = j.strip().split("\t")
+            i = int(index)
 
             #judge pos in select region or not
             if chrom != query_chrom:
