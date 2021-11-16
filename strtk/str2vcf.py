@@ -6,6 +6,8 @@ def str2vcf_main(args):
 
     if args.region:
         query_chrom, query_start, query_end = parse_region(args.region)
+    else:
+        query_chrom, query_start, query_end = None, None, None
     O = open(args.out_vcf, "w")
     write_vcf_header(O, args.sample_id)
     with open(args.str_file) as F:
@@ -17,7 +19,7 @@ def str2vcf_main(args):
             i = int(index)
 
             #judge pos in select region or not
-            if chrom != query_chrom:
+            if query_chrom and chrom != query_chrom:
                 continue
             pos = int(pos)
             if query_start:
