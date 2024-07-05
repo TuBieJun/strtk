@@ -62,6 +62,7 @@ def main():
     com_plus_parser.add_argument("-i2", "--index2", required=True, help="the index file of str file 2", metavar="")
     com_plus_parser.add_argument("-v", "--var_type", required=False, help="the var type to compare, can be SNP/INDEL/ALL,default is SNP", choices=["SNP", "INDEL", "ALL"], default="SNP", metavar="")
     com_plus_parser.add_argument("-k", "--key", required=False, help="the key to compare a var, can be rsid/pos, default is pos", choices=["rsid", "pos"], default="rsid", metavar="")
+    com_plus_parser.add_argument("-l", "--limit_set", required=False, help="the limit pos set to compare", metavar="")
     com_plus_parser.set_defaults(func=com_plus_main)
     argslist = sys.argv[1:]
     if len(argslist) < 1:
