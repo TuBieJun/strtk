@@ -26,6 +26,6 @@ setuptools.setup (
     },
     python_requires='>=3.6',
     install_requires=[
-        "statsmodels==0.12.0"
+        "statsmodels"
     ]
 )

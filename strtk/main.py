@@ -25,6 +25,7 @@ def main():
     view_parser.add_argument("-s", "--str_file", required=True, help="the input string file path", metavar="")
     view_parser.add_argument("-r", "--region", help="the region or the pos to view chr|chr:pos|chr:start-end", metavar="")
     view_parser.add_argument("-i", "--index_file", required=True, help="the index file", metavar="")
+    view_parser.add_argument("-p", "--pos_file",  help="the query pos file", metavar="")
     view_parser.set_defaults(func=view_main)
 
     #stats
